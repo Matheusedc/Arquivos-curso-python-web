@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Python</title>
+    <title>
+        {% block titulo %}
+        Projeto Python
+        {% endblock %}
+    </title>
 </head>
+
+{% block body %}
 <body>
     
     <h1>"Meu primeiro site Python"</h1>
 
 </body>
+{% endblock %}
+
 </html>
