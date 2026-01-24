@@ -1,5 +1,10 @@
-from fakesite import database
+from fakesite import database, login_manager
 from datetime import datetime
+from flask_login import UserMixin
+
+@login_manager_user_loader
+def load_usuario(id_usuario):
+    return Usuario.query.get(int(id_usuario))
 
 class Usuario(database.Model):
     id = database.Column(database.Integer, primary_key=True)
