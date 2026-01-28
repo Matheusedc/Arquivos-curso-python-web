@@ -15,15 +15,16 @@
     
     <h1>"Meu primeiro site Python"</h1>
 
-        <form method="PST">
+        <form method="POST">
         {{form.csrf_token}}
             {{form.email.label()}}
             {{form.email()}}
             
             {{form.senha.label()}}
-            {{form.senha.label()}}
+            {{form.senha()}}
 
-            {{form.botao_confirmacao.label()}}
+            {{ form.botao_confirmacao() }}
+
 
 
 
