@@ -2,9 +2,33 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block titulo %}
+        Projeto Python
+        {% endblock %}
+    </title>
 </head>
+
+{% block body %}
 <body>
-    <h1>Agora vai 🚀</h1>
+    
+    <h1>"Meu primeiro site Python"</h1>
+
+        <form method="PST">
+        {{form.csrf_token}}
+            {{form.email.label()}}
+            {{form.email()}}
+            
+            {{form.senha.label()}}
+            {{form.senha.label()}}
+
+            {{form.botao_confirmacao.label()}}
+
+
+
+        </form>
 </body>
+{% endblock %}
+
 </html>
