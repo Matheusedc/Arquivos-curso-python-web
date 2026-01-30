@@ -17,7 +17,7 @@ def homepage():
             
             login_user(usuario, remember = True) #Loga o usuario e matém logado mesmo que feche a janela
         
-            return  redirect(url_for("perfil", usuario = usuario.username))
+            return  redirect(url_for("perfil", id.usuario = usuario.id))
         
     return render_template("homepage.html", form=formlogin)
     
@@ -35,14 +35,19 @@ def criarconta():
 
         login_user(usuario, remember = True) #Loga o usuario e matém logado mesmo que feche a janela
         
-        return redirect(url_for("perfil", usuario = usuario.username))
+        return redirect(url_for("perfil", id.usuario = usuario.id))
         
     return render_template("criarconta.html", form=formcriarconta)
 
-@app.route("/perfil/<usuario>")
+@app.route("/perfil/<id.usuario>")
 @login_required
-def perfil(usuario):
-    return render_template("perfil.html", usuario=usuario)
+def perfil(id.usuario):
+    if int(id.usuario) == int(current_user.id):
+        # o usuario ta vendo o perfil dele
+        return render_template("perfil.html", usuario=corrent_user)
+    else:
+        usuario = Usuario.query.get(int(id.usuario))
+        return render_template("perfil.html", usuario=usuario)
 
 @app.route("/logout")
 @login_required
