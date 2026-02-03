@@ -9,13 +9,17 @@ Perfil
 {% block body %}
 
 <body>
-    <h1> Perfil dos usuários: {{ usuario.username }}</h1>
 
-    <a href="{{ url_for('logout')}}"> Sair</a>
+<h1> Perfil dos usuários: {{ usuario.username }}</h1>
+
+<a href="{{ url_for('logout')}}"> Sair</a>
+
+<img src = "{{ url_for('static', filename = 'fotos_posts/default.png')}}">
+
 
 {% for foto in usuario.fotos %}
 
-<img src = "">
+
 
 {% endfor %}
 
