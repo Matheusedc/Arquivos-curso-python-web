@@ -1,14 +1,21 @@
 {% extends "homepage.html" %}
 
 
-
 {% block body %}
-{%  includes "navbar.html" %}
+{% include "navbar.html" %}
 
-{% for foto in fotos %}
+  <body>
+    <div class="container">
 
-<img src = "{{ url_for('static', filename = 'fotos_posts/{}'.format(foto.imagem))}}">
 
-{% endfor %}
+      <div class="conteudo">
+          {% for foto in fotos %}
+            <a href="{{ url_for('perfil', id_usuario=foto.id_usuario) }}" class="bloco-imagem">
+              <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" />
+            </a>
+          {% endfor %}
+      </div>
+    </div>
+  </body>
 
 {% endblock %}
